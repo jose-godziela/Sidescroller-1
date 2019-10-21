@@ -1,8 +1,8 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-extern int screenWidth = 800;
-extern int screenHeight = 450;
+extern int screenWidth;
+extern int screenHeight;
 
 void initConsole();
 
