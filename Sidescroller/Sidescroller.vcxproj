@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\game_elements\bullet.cpp" />
+    <ClCompile Include="..\src\game_elements\player.cpp" />
+    <ClCompile Include="..\src\general\background.cpp" />
+    <ClCompile Include="..\src\general\console.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\states\game.cpp" />
+    <ClCompile Include="..\src\states\gameOver.cpp" />
+    <ClCompile Include="..\src\states\gameplay.cpp" />
+    <ClCompile Include="..\src\states\menu.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\game_elements\bullet.h" />
+    <ClInclude Include="..\src\game_elements\player.h" />
+    <ClInclude Include="..\src\general\background.h" />
+    <ClInclude Include="..\src\general\console.h" />
+    <ClInclude Include="..\src\states\game.h" />
+    <ClInclude Include="..\src\states\gameOver.h" />
+    <ClInclude Include="..\src\states\gameplay.h" />
+    <ClInclude Include="..\src\states\menu.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{FEBEB0A6-9280-46D1-AA31-78F05869C7D4}</ProjectGuid>
@@ -91,7 +112,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/raylib-2.5.0-Win32-msvc15/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/raylib-2.5.0-Win32-msvc15/include;$(SolutionDir)/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\raylib-2.5.0-Win32-msvc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -128,7 +149,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/raylib-2.5.0-Win32-msvc15/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/raylib-2.5.0-Win32-msvc15/include;$(SolutionDir)/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -164,27 +185,6 @@
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="background.cpp" />
-    <ClCompile Include="bullet.cpp" />
-    <ClCompile Include="console.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="gameOver.cpp" />
-    <ClCompile Include="gameplay.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="menu.cpp" />
-    <ClCompile Include="player.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="background.h" />
-    <ClInclude Include="bullet.h" />
-    <ClInclude Include="console.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="gameOver.h" />
-    <ClInclude Include="gameplay.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="player.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

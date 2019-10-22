@@ -1,72 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="gameElements">
+      <UniqueIdentifier>{2eb24253-900d-4a79-98db-6d176ac3dc41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="states">
+      <UniqueIdentifier>{4a131dff-542d-40ce-a7e3-e4600e1ed77d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="general">
+      <UniqueIdentifier>{cb21c6fc-41b1-4002-bc4e-42340a7619f2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\game_elements\bullet.cpp">
+      <Filter>gameElements</Filter>
     </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\game_elements\player.cpp">
+      <Filter>gameElements</Filter>
     </ClCompile>
-    <ClCompile Include="bullet.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\general\background.cpp">
+      <Filter>general</Filter>
     </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\general\console.cpp">
+      <Filter>general</Filter>
     </ClCompile>
-    <ClCompile Include="gameplay.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\states\game.cpp">
+      <Filter>states</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\states\gameOver.cpp">
+      <Filter>states</Filter>
     </ClCompile>
-    <ClCompile Include="console.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\states\gameplay.cpp">
+      <Filter>states</Filter>
     </ClCompile>
-    <ClCompile Include="background.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\src\states\menu.cpp">
+      <Filter>states</Filter>
     </ClCompile>
-    <ClCompile Include="gameOver.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
+    <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="player.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\game_elements\bullet.h">
+      <Filter>gameElements</Filter>
     </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\game_elements\player.h">
+      <Filter>gameElements</Filter>
     </ClInclude>
-    <ClInclude Include="gameplay.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\general\background.h">
+      <Filter>general</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\general\console.h">
+      <Filter>general</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\states\game.h">
+      <Filter>states</Filter>
     </ClInclude>
-    <ClInclude Include="console.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\states\gameOver.h">
+      <Filter>states</Filter>
     </ClInclude>
-    <ClInclude Include="background.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\states\gameplay.h">
+      <Filter>states</Filter>
     </ClInclude>
-    <ClInclude Include="gameOver.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\src\states\menu.h">
+      <Filter>states</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

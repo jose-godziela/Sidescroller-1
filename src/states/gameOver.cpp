@@ -2,7 +2,7 @@
 
 #include "raylib.h"
 
-#include "game.h"
+#include "states/game.h"
 
 static Vector2 loseTextPos;
 static int loseTextFont;

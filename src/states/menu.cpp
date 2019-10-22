@@ -1,5 +1,7 @@
 #include "menu.h"
-#include "game.h"
+
+#include "states/game.h"
+
 Button play;
 Button exit;
 static const Color notSelectedColor = YELLOW;
