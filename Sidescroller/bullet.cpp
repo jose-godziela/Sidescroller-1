@@ -1,8 +1,8 @@
 #include "bullet.h"
 #include "console.h"
-static const int bulletAmmount = 3;
+const int bulletAmmount = 20;
 Bullet bullet[bulletAmmount];
-void keepBulletInScreen(Bullet &bullet);
+void resetBulletInScreen(Bullet &bullet);
 
 
 void initBullets() 
@@ -19,6 +19,7 @@ void initBullets()
 			bullet[i].color = ORANGE;
 			bullet[i].damage = 1;
 		}
+		bullet[i].exists = true;
 		bullet[i].rec.height = 10.0f;
 		bullet[i].rec.width = 20.0f;
 		bullet[i].rec.x = screenWidth + i * screenWidth/bulletAmmount;
@@ -32,7 +33,7 @@ void updateBullets()
 	for (int i = 0; i < bulletAmmount; i++)
 	{
 		bullet[i].rec.x -= bullet[i].speed * GetFrameTime();
-		keepBulletInScreen(bullet[i]);
+		resetBulletInScreen(bullet[i]);
 	}
 }
 
@@ -40,15 +41,16 @@ void drawBullets()
 {
 	for (int i = 0; i < bulletAmmount; i++)
 	{
-		DrawRectangle(bullet[i].rec.x, bullet[i].rec.y, bullet[i].rec.width, bullet[i].rec.height, bullet[i].color);
+		if(bullet[i].exists) DrawRectangle(bullet[i].rec.x, bullet[i].rec.y, bullet[i].rec.width, bullet[i].rec.height, bullet[i].color);
 	}
 }
 
-void keepBulletInScreen(Bullet &bullet)
+void resetBulletInScreen(Bullet &bullet)
 {
 	if (bullet.rec.x + bullet.rec.width <= 0)
 	{
 		bullet.rec.x = screenWidth;
 		bullet.rec.y = GetRandomValue(0, screenHeight - bullet.rec.height);
+		bullet.exists = true;
 	}
 }

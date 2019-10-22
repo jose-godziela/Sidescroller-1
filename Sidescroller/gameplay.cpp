@@ -5,7 +5,9 @@
 #include "player.h"
 #include "background.h"
 #include "bullet.h"
+#include "game.h"
 
+void checkBulletsPlayerCollition();
 
 void updateGameplay()
 {
@@ -27,6 +29,11 @@ void updateGameplay()
 	}
 	updateBackground();
 	updateBullets();
+	checkBulletsPlayerCollition();
+	if (player.lifePoints<=0)
+	{
+		gamestate = gameOver;
+	}
 }
 
 void drawGameplay()
@@ -44,4 +51,16 @@ void drawGameplay()
 	drawBullets();
 
 	EndDrawing();
+}
+
+void checkBulletsPlayerCollition()
+{
+	for (int i = 0; i < bulletAmmount; i++)
+	{
+		if (CheckCollisionRecs(player.ship,bullet[i].rec)&&bullet[i].exists)
+		{
+			bullet[i].exists = false;
+			player.lifePoints--;
+		}
+	}
 }

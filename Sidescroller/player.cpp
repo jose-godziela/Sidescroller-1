@@ -12,6 +12,7 @@ void initPlayer()
 	player.ship.width = 50;
 	player.ship.height = 10;
 	player.speed = { 350.0f,350.0f };
+	player.lifePoints = 5;
 }
 
 float playerTopSideY(Player player)

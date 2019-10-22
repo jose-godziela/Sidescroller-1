@@ -7,6 +7,7 @@ struct Player
 {
 	Rectangle ship;
 	Vector2 speed;
+	int lifePoints;
 };
 extern Player player;
 

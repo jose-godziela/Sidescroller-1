@@ -8,19 +8,46 @@
 #include "player.h"
 #include "background.h"
 #include "bullet.h"
+#include "menu.h"
+#include "gameOver.h"
 
-States gamestate;
+States gamestate=menu;
+void init();
+
 void executeGame() 
+{
+	init();
+
+	while (gamestate!=close)
+	{
+		switch (gamestate)
+		{
+		case menu:
+			updateMenu();
+			drawMenu();
+			break;
+
+		case gameplay:
+			updateGameplay();
+			drawGameplay();
+			break;
+
+		case gameOver:
+			updateGameOver();
+			drawGameover();
+			break;
+		}
+
+	}
+	CloseWindow();
+}
+
+void init()
 {
 	initConsole();
 	initPlayer();
 	initBackground();
 	initBullets();
-	while (!WindowShouldClose())
-	{
-		updateGameplay();
-		drawGameplay();
-	}
-	
-	CloseWindow();
+	initMenu();
+	initGameOver();
 }

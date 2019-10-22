@@ -169,6 +169,7 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameOver.cpp" />
     <ClCompile Include="gameplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="bullet.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="gameOver.h" />
     <ClInclude Include="gameplay.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="player.h" />
