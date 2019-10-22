@@ -120,7 +120,8 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)raylib-2.5.0-Win32-msvc15\bin\raylib.dll" "$(OutDir)" /Y
+      <Command>cd $(ProjectDir)
+copy.bat "$(SolutionDir)raylib-2.5.0-Win32-msvc15\bin\raylib.dll" "$(OutDir)"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -160,7 +161,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)raylib-2.5.0-Win32-msvc15\bin\raylib.dll" "$(OutDir)" /Y
+      <Command>cd $(ProjectDir)
+copy.bat "$(SolutionDir)raylib-2.5.0-Win32-msvc15\bin\raylib.dll" "$(OutDir)"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
