@@ -30,6 +30,25 @@ void initMenu()
 	exit.textFont = 40;
 }
 
+void resizeMenu(float xMult, float yMult)
+{
+	play.button.width *= xMult;
+	play.button.height *= yMult;
+	play.button.x *= xMult;
+	play.button.y *= yMult;
+	play.textPosition.x *= xMult;
+	play.textPosition.y *= yMult;
+	play.textFont *= yMult;
+	exit.button.width *= xMult;
+	exit.button.height *= yMult;
+	exit.button.x *= xMult;
+	exit.button.y *= yMult;
+	exit.textPosition.x *= xMult;
+	exit.textPosition.y *= yMult;
+	exit.textFont *= yMult;
+
+}
+
 void updateMenu()
 {
 	if (IsKeyPressed(KEY_UP)&&opciones>1)

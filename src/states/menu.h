@@ -15,6 +15,7 @@ extern Button play;
 extern Button exit;
 
 void initMenu();
+void resizeMenu(float xMult, float yMult);
 void updateMenu();
 void drawMenu();
 

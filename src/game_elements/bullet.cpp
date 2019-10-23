@@ -28,6 +28,17 @@ void initBullets()
 	}
 }
 
+void resizeBullets(float xMult, float yMult)
+{
+	for (int i = 0; i < bulletAmmount; i++)
+	{
+		bullet[i].rec.width *= xMult;
+		bullet[i].rec.height *= yMult;
+		bullet[i].rec.x *= xMult;
+		bullet[i].rec.y *= yMult;
+	}
+}
+
 void updateBullets()
 {
 	for (int i = 0; i < bulletAmmount; i++)

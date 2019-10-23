@@ -17,7 +17,7 @@ void init();
 void executeGame() 
 {
 	init();
-
+	resize(1200,675);
 	while (gamestate!=close)
 	{
 		switch (gamestate)

@@ -8,9 +8,12 @@ struct Background
 	Color color;
 	float speed;
 };
-extern Background backgroundPiece[];
+extern Background wall[];
+extern Background floor[];
+
 
 void initBackground();
+void resizeBackground(float xMult, float yMult);
 void updateBackground();
 void drawBackground();
 

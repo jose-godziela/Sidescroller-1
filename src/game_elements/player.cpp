@@ -15,6 +15,14 @@ void initPlayer()
 	player.lifePoints = 5;
 }
 
+void resizePlayer(float xMult, float yMult)
+{
+	player.ship.width *= xMult;
+	player.ship.height *= yMult;
+	player.ship.x *= xMult;
+	player.ship.y *= yMult;
+}
+
 float playerTopSideY(Player player)
 {
 	return player.ship.y;

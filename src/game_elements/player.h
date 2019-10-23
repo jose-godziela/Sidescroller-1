@@ -12,6 +12,8 @@ struct Player
 extern Player player;
 
 void initPlayer();
+void resizePlayer(float xMult, float yMult);
+
 float playerTopSideY(Player player);
 float playerBottomSideY(Player player);
 float playerLeftSideX(Player player);

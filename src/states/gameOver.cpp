@@ -13,6 +13,14 @@ void initGameOver()
 	loseTextPos.y = 200.0f;
 	loseTextFont = 40;
 }
+
+void resizeGameOver(float xMult, float yMult)
+{
+	loseTextPos.x *= xMult;
+	loseTextPos.y *= yMult;
+	loseTextFont *= yMult;
+}
+
 void updateGameOver()
 {
 	if (IsKeyPressed(KEY_ENTER))
@@ -20,6 +28,7 @@ void updateGameOver()
 		gamestate = close;
 	}
 }
+
 void drawGameover()
 {
 	BeginDrawing();

@@ -15,6 +15,7 @@ struct Bullet
 extern Bullet bullet[];
 
 void initBullets();
+void resizeBullets(float xMult, float yMult);
 void updateBullets();
 void drawBullets();
 
