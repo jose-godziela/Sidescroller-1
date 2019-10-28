@@ -10,8 +10,8 @@
 
 int screenWidth = 800;
 int screenHeight = 450;
-static int newSizeMultiplierX;
-static int newSizeMultiplierY;
+static float newSizeMultiplierX;
+static float newSizeMultiplierY;
 
 void initConsole()
 {
@@ -20,8 +20,8 @@ void initConsole()
 
 void resize(int newWidth, int newHeight)
 {
-	newSizeMultiplierX = newWidth / screenWidth;
-	newSizeMultiplierY = newHeight / screenHeight;
+	newSizeMultiplierX = static_cast<float>(newWidth) / screenWidth;
+	newSizeMultiplierY = static_cast<float>(newHeight) / screenHeight;
 	SetWindowSize(newWidth, newHeight);
 	screenWidth = newWidth;
 	screenHeight = newHeight;

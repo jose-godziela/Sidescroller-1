@@ -1,5 +1,7 @@
 #include "player.h"
+
 #include "general/console.h"
+#include "general/background.h"
 
 Player player;
 
@@ -58,7 +60,7 @@ bool playerCollidesRoof(Player player)
 
 bool playerCollidesFloor(Player player)
 {
-	if (playerBottomSideY(player) >= screenHeight)
+	if (playerBottomSideY(player) >= floor[0].rec.y)
 	{
 		return true;
 	}

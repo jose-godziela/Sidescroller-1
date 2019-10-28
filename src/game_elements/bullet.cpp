@@ -1,9 +1,12 @@
 #include "bullet.h"
+
 #include "general/console.h"
+#include "general/background.h"
+
+
 const int bulletAmmount = 20;
 Bullet bullet[bulletAmmount];
 void resetBulletInScreen(Bullet &bullet);
-
 
 void initBullets() 
 {
@@ -23,8 +26,8 @@ void initBullets()
 		bullet[i].rec.height = 10.0f;
 		bullet[i].rec.width = 20.0f;
 		bullet[i].rec.x = screenWidth + i * screenWidth/bulletAmmount;
-		bullet[i].rec.y = GetRandomValue(0,screenHeight-bullet[i].rec.height);
-		bullet[i].speed = 300.0f;
+		bullet[i].rec.y = GetRandomValue(0,floor[0].rec.y-bullet[i].rec.height);
+		bullet[i].speed = 500.0f;
 	}
 }
 
@@ -61,7 +64,7 @@ void resetBulletInScreen(Bullet &bullet)
 	if (bullet.rec.x + bullet.rec.width <= 0)
 	{
 		bullet.rec.x = screenWidth;
-		bullet.rec.y = GetRandomValue(0, screenHeight - bullet.rec.height);
+		bullet.rec.y = GetRandomValue(0, floor[0].rec.y - bullet.rec.height);
 		bullet.exists = true;
 	}
 }

@@ -47,9 +47,9 @@ void drawGameplay()
 
 	DrawRectangle(player.ship.x, player.ship.y, player.ship.width, player.ship.height, MAROON);
 
-	DrawText("move the ship with arrow keys", 10, 10, 20, DARKGRAY);
-
 	drawBullets();
+
+	DrawText(TextFormat("Lives Left i%",player.lifePoints), 10, 10, 20, DARKGRAY);
 
 	EndDrawing();
 }

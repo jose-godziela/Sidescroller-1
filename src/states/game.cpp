@@ -4,12 +4,11 @@
 
 #include "states/gameplay.h"
 #include "states/menu.h"
-#include "general/console.h"
-#include "game_elements/player.h"
-#include "general/background.h"
-#include "game_elements/bullet.h"
-#include "states/menu.h"
 #include "states/gameOver.h"
+#include "general/console.h"
+#include "general/background.h"
+#include "game_elements/player.h"
+#include "game_elements/bullet.h"
 
 States gamestate=menu;
 void init();

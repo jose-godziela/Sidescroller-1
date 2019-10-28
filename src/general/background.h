@@ -7,6 +7,7 @@ struct Background
 	Rectangle rec;
 	Color color;
 	float speed;
+	Texture tex;
 };
 extern Background wall[];
 extern Background floor[];
@@ -17,5 +18,4 @@ void resizeBackground(float xMult, float yMult);
 void updateBackground();
 void drawBackground();
 
-
-#endif // !BACKGROUNDS_H
+#endif //BACKGROUNDS_H
