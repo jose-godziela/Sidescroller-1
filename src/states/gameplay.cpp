@@ -1,5 +1,7 @@
 #include "gameplay.h"
 
+#include <ctime>
+
 #include "raylib.h"
 
 #include "general/console.h"
@@ -8,10 +10,15 @@
 #include "game_elements/bullet.h"
 #include "states/game.h"
 
+float timer;
+
 void checkBulletsPlayerCollition();
+void updateTimer();
 
 void updateGameplay()
 {
+	updateTimer();
+	updatePlayerSprite();
 	if (IsKeyDown(KEY_RIGHT)&&!playerCollidesRightWall(player))
 	{
 		player.ship.x += player.speed.x *GetFrameTime();
@@ -45,11 +52,13 @@ void drawGameplay()
 
 	drawBackground();
 
-	DrawRectangle(player.ship.x, player.ship.y, player.ship.width, player.ship.height, MAROON);
+	//DrawRectangle(player.ship.x, player.ship.y, player.ship.width, player.ship.height, MAROON);
+
+	DrawTexture(player.texture.actualTex, texturePos(player.ship.x, player.texture.xOffset), texturePos(player.ship.y, player.texture.yOffset), player.texture.color);
 
 	drawBullets();
 
-	DrawText(TextFormat("Lives Left i%",player.lifePoints), 10, 10, 20, DARKGRAY);
+	DrawText(TextFormat("Lives Left: %i",player.lifePoints), 10, 10, 20, DARKGRAY);
 
 	EndDrawing();
 }
@@ -64,4 +73,9 @@ void checkBulletsPlayerCollition()
 			player.lifePoints--;
 		}
 	}
+}
+
+void updateTimer() 
+{
+	timer = static_cast<float>(clock() / 1000);
 }

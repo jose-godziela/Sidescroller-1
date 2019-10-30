@@ -3,12 +3,27 @@
 
 #include "raylib.h"
 
+
+struct FullTexture
+{
+	Texture actualTex;
+	int xOffset;
+	int yOffset;
+	Color color;
+	float swappingTime;
+	int frame;
+	Texture tex1;
+	Texture tex2;
+};
+
 struct Player
 {
 	Rectangle ship;
 	Vector2 speed;
 	int lifePoints;
+	FullTexture texture;
 };
+
 extern Player player;
 
 void initPlayer();
@@ -23,5 +38,6 @@ bool playerCollidesRoof(Player player);
 bool playerCollidesFloor(Player player);
 bool playerCollidesLeftWall(Player player);
 bool playerCollidesRightWall(Player player);
-
-#endif // !PLAYER_H
+int texturePos(float originalPos, int texOffset);
+void updatePlayerSprite();
+#endif //PLAYER_H

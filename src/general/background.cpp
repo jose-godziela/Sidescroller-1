@@ -5,7 +5,6 @@ static const int wallPiecesAmmount = 8;
 static const int floorPiecesAmmount = 16;
 Background wall[wallPiecesAmmount];
 Background floor[floorPiecesAmmount];
-static Image floorImg;
 Rectangle floorBack;
 void keepBackgroundInScreen(Background &backgroundPiece);
 

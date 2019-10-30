@@ -13,9 +13,10 @@ int screenHeight = 450;
 static float newSizeMultiplierX;
 static float newSizeMultiplierY;
 
+
 void initConsole()
 {
-	InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
+	InitWindow(screenWidth, screenHeight, "GRADIUS - Inaki Diez");
 }
 
 void resize(int newWidth, int newHeight)
@@ -25,6 +26,7 @@ void resize(int newWidth, int newHeight)
 	SetWindowSize(newWidth, newHeight);
 	screenWidth = newWidth;
 	screenHeight = newHeight;
+	SetWindowPosition((GetMonitorWidth(0) - screenWidth) / 2, (GetMonitorHeight(0) - screenHeight) / 2);
 	resizeBackground(newSizeMultiplierX,newSizeMultiplierY);
 	resizeBullets(newSizeMultiplierX, newSizeMultiplierY);
 	resizePlayer(newSizeMultiplierX, newSizeMultiplierY);

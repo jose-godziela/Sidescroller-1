@@ -2,19 +2,32 @@
 
 #include "general/console.h"
 #include "general/background.h"
+#include "states/gameplay.h"
 
 Player player;
-
-const int juanito = 9;
+static float oldTimer;
 
 void initPlayer() 
 {
 	player.ship.x = 200;
 	player.ship.y = 200;
 	player.ship.width = 50;
-	player.ship.height = 10;
+	player.ship.height = 20;
 	player.speed = { 350.0f,350.0f };
 	player.lifePoints = 5;
+	player.texture.tex1= LoadTexture("images/Evil-flying-dude-1.png");
+	player.texture.tex2= LoadTexture("images/Evil-flying-dude-2.png");
+	player.texture.tex1.height = 55;
+	player.texture.tex1.width = 70;
+	player.texture.tex2.height = 55;
+	player.texture.tex2.width = 70;
+	player.texture.xOffset = -10;
+	player.texture.actualTex = player.texture.tex1;
+	player.texture.frame = 1;
+	player.texture.yOffset = -18;
+	player.texture.color = WHITE;
+	player.texture.swappingTime = 0.5f;
+	oldTimer = timer;
 }
 
 void resizePlayer(float xMult, float yMult)
@@ -23,6 +36,12 @@ void resizePlayer(float xMult, float yMult)
 	player.ship.height *= yMult;
 	player.ship.x *= xMult;
 	player.ship.y *= yMult;
+	player.texture.tex1.width *= xMult;
+	player.texture.tex1.height *= yMult;
+	player.texture.tex2.width *= xMult;
+	player.texture.tex2.height *= yMult;
+	player.texture.xOffset *= xMult;
+	player.texture.yOffset *= yMult;
 }
 
 float playerTopSideY(Player player)
@@ -91,5 +110,29 @@ bool playerCollidesRightWall(Player player)
 	else
 	{
 		return false;
+	}
+}
+
+int texturePos(float originalPos, int texOffset) 
+{
+	return originalPos + texOffset;
+}
+ 
+void updatePlayerSprite()
+{
+	if (timer >= oldTimer + player.texture.swappingTime )
+	{
+		switch (player.texture.frame)
+		{
+		case 1:
+			player.texture.frame = 2;
+			player.texture.actualTex = player.texture.tex2;
+			break;
+		case 2:
+			player.texture.frame = 1;
+			player.texture.actualTex = player.texture.tex1;
+			break;
+		}
+		oldTimer = timer;
 	}
 }
