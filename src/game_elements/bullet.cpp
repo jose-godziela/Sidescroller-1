@@ -3,7 +3,9 @@
 #include "general/console.h"
 #include "general/background.h"
 
-
+int setPosinicialX();
+int setPosInicialY();
+int foo = 0;
 const int bulletAmmount = 20;
 Bullet bullet[bulletAmmount];
 void resetBulletInScreen(Bullet &bullet);
@@ -25,9 +27,10 @@ void initBullets()
 		bullet[i].exists = true;
 		bullet[i].rec.height = 10.0f;
 		bullet[i].rec.width = 20.0f;
-		bullet[i].rec.x = screenWidth + i * screenWidth/bulletAmmount;
-		bullet[i].rec.y = GetRandomValue(0,floor[0].rec.y-bullet[i].rec.height);
+		bullet[i].rec.x = setPosinicialX();
+		bullet[i].rec.y = setPosInicialY();
 		bullet[i].speed = 500.0f;
+		foo++;
 	}
 }
 
@@ -67,4 +70,25 @@ void resetBulletInScreen(Bullet &bullet)
 		bullet.rec.y = GetRandomValue(0, floor[0].rec.y - bullet.rec.height);
 		bullet.exists = true;
 	}
+}
+
+void resetBullets()
+{
+	foo = 0;
+	for (int i = 0; i < bulletAmmount; i++)
+	{
+		bullet[i].rec.x = setPosinicialX();
+		bullet[i].rec.x = setPosInicialY();
+		foo++;
+	}
+	foo = 0;
+}
+
+int setPosinicialX()
+{
+	return screenWidth + foo * screenWidth / bulletAmmount;
+}
+int setPosInicialY()
+{
+	return GetRandomValue(0, floor[0].rec.y - bullet[foo].rec.height);
 }

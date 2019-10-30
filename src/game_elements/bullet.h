@@ -18,7 +18,7 @@ void initBullets();
 void resizeBullets(float xMult, float yMult);
 void updateBullets();
 void drawBullets();
-
+void resetBullets();
 
 #endif // !BULLET_H
 

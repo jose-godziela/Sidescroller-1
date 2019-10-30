@@ -1,22 +1,20 @@
 #include "player.h"
 
-#include "general/console.h"
-#include "general/background.h"
-#include "states/gameplay.h"
-
 Player player;
 static float oldTimer;
 
-void initPlayer() 
+void initPlayer()
 {
-	player.ship.x = 200;
-	player.ship.y = 200;
+	player.posInicial.x = 200;
+	player.posInicial.y = 200;
+	player.ship.x = player.posInicial.x;
+	player.ship.y = player.posInicial.y;
 	player.ship.width = 50;
 	player.ship.height = 20;
 	player.speed = { 350.0f,350.0f };
 	player.lifePoints = 5;
-	player.texture.tex1= LoadTexture("images/Evil-flying-dude-1.png");
-	player.texture.tex2= LoadTexture("images/Evil-flying-dude-2.png");
+	player.texture.tex1 = LoadTexture("images/Evil-flying-dude-1.png");
+	player.texture.tex2 = LoadTexture("images/Evil-flying-dude-2.png");
 	player.texture.tex1.height = 55;
 	player.texture.tex1.width = 70;
 	player.texture.tex2.height = 55;
@@ -28,6 +26,18 @@ void initPlayer()
 	player.texture.color = WHITE;
 	player.texture.swappingTime = 0.5f;
 	oldTimer = timer;
+
+	//Bullets
+	for (int i = 0; i < max_bullets; i++)
+	{
+		player.bullet[i].exists = false;
+		player.bullet[i].rec.height = 15.0f;
+		player.bullet[i].rec.width = 5.0f;
+		player.bullet[i].rec.x = player.ship.x + player.ship.width + bullet[i].rec.width;
+		player.bullet[i].rec.y = player.ship.y;
+		player.bullet[i].speed = 500.0f;
+		player.bullet[i].color = BLACK;
+	}
 }
 
 void resizePlayer(float xMult, float yMult)
@@ -67,7 +77,7 @@ float playerRightSide(Player player)
 
 bool playerCollidesRoof(Player player)
 {
-	if (playerTopSideY(player)<=0)
+	if (playerTopSideY(player) <= 0)
 	{
 		return true;
 	}
@@ -113,14 +123,14 @@ bool playerCollidesRightWall(Player player)
 	}
 }
 
-int texturePos(float originalPos, int texOffset) 
+int texturePos(float originalPos, int texOffset)
 {
 	return originalPos + texOffset;
 }
- 
+
 void updatePlayerSprite()
 {
-	if (timer >= oldTimer + player.texture.swappingTime )
+	if (timer >= oldTimer + player.texture.swappingTime)
 	{
 		switch (player.texture.frame)
 		{
@@ -135,4 +145,51 @@ void updatePlayerSprite()
 		}
 		oldTimer = timer;
 	}
+}
+
+void resetPlayerBulletInScreen()
+{
+	for (int i = 0; i < max_bullets; i++)
+	{
+		if (player.bullet[i].rec.x - player.bullet[i].rec.width >= screenWidth)
+		{
+			player.bullet[i].exists = false;
+			player.bullet[i].rec.x = player.ship.x;
+		}
+	}
+
+}
+
+
+void drawPlayerBullets()
+{
+	for (int i = 0; i < max_bullets; i++)
+	{
+		if (player.bullet[i].exists)
+			DrawRectangle(player.bullet[i].rec.x, player.bullet[i].rec.y,
+				player.bullet[i].rec.width, player.bullet[i].rec.height, player.bullet[i].color);
+	}
+}
+
+void updatePlayerBullets()
+{
+	for (int i = 0; i < max_bullets; i++)
+	{
+		if (player.bullet[i].exists)
+		{
+			player.bullet[i].rec.x += bullet[i].speed * GetFrameTime();
+			resetPlayerBulletInScreen();
+		}
+	}
+}
+
+void resetPlayer()
+{
+	player.lifePoints = 5;
+	for (int i = 0; i < max_bullets; i++)
+	{
+		player.bullet[i].exists = false;
+	}
+	player.ship.x = player.posInicial.x;
+	player.ship.y = player.posInicial.y;
 }

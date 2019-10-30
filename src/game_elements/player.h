@@ -3,6 +3,13 @@
 
 #include "raylib.h"
 
+#include "bullet.h"
+#include "general/console.h"
+#include "general/background.h"
+#include "states/gameplay.h"
+
+
+const int max_bullets = 10;
 
 struct FullTexture
 {
@@ -18,10 +25,12 @@ struct FullTexture
 
 struct Player
 {
+	Vector2 posInicial;
 	Rectangle ship;
 	Vector2 speed;
 	int lifePoints;
 	FullTexture texture;
+	Bullet bullet[max_bullets];
 };
 
 extern Player player;
@@ -40,4 +49,8 @@ bool playerCollidesLeftWall(Player player);
 bool playerCollidesRightWall(Player player);
 int texturePos(float originalPos, int texOffset);
 void updatePlayerSprite();
+void drawPlayerBullets();
+void updatePlayerBullets();
+void resetPlayer();
+
 #endif //PLAYER_H

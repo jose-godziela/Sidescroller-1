@@ -25,7 +25,7 @@ void updateGameOver()
 {
 	if (IsKeyPressed(KEY_ENTER))
 	{
-		gamestate = close;
+		gamestate = menu;
 	}
 }
 
